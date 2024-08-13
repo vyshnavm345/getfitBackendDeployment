@@ -36,8 +36,7 @@ server {
     }
 
     location /ws/ {
-        proxy_pass http://api;
-        proxy_http_version 1.1;
+        proxy_pass http://api        proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "Upgrade";
         proxy_set_header Host $host;
@@ -75,7 +74,7 @@ server {
 
 
 # upstream api {
-#     server backend:8000;
+#     server backend:8000
 # }
 
 # server {

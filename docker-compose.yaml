@@ -1,6 +1,18 @@
 # version: '3.8'
 
 services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - backend-network
+
+
   backend:
     build:
       context: ./backend
@@ -18,6 +30,10 @@ services:
       - ./backend/.env
     environment:
       DJANGO_SETTINGS_MODULE: auth_site.settings
+    networks:
+      - backend-network
+    links:
+      - db:db
 
   # frontend:
   #   build:
@@ -31,32 +47,28 @@ services:
   nginx:
     image: nginx:latest
     ports:
-      - "80:8080"
+      - "80:80"
+      - "443:443"
     volumes:
       - ./nginx/nginx-setup.conf:/etc/nginx/conf.d/default.conf:ro
       # - react_build:/var/www/client
       - static_volume:/var/www/static
       - media_files:/var/www/media
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /var/www/certbot:/var/www/certbot
     depends_on:
       - backend
+      - db
       # - frontend
-  db:
-    image: postgres:latest
-    environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
-      # - ./backup:/docker-entrypoint-initdb.d
-    # entrypoint: /docker-entrypoint-initdb.d/import_database.sh
-    container_name: postgres_db
-    # ports:
-    #   - "5432:5432"
+    networks:
+      - backend-network
+
   redis:
     image: redis:7
     ports:
       - "6379:6379"
+    networks:
+      - backend-network
 
 volumes:
   # react_build:
@@ -64,3 +76,7 @@ volumes:
   media_files:
   db_data:
   backup:
+  postgres-data:
+
+networks:
+  backend-network:
