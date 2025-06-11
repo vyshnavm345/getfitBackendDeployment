@@ -130,7 +130,4 @@ https://www.server.getfittoday.xyz/api/)
 - 🔐 **Admin Panel**: [
 https://www.server.getfittoday.xyz/admin](
 https://www.server.getfittoday.xyz/admin/)
-
-> 🛠️ In production, replace `localhost` with your domain or public IP (e.g., EC2 IP).
-
 ---
