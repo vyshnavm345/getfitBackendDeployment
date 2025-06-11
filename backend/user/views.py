@@ -57,7 +57,7 @@ class RegisterView(APIView):
         # current_site = get_current_site(request).domain
         # relative_link = reverse("email_verification")
         # absurl = "http://" + current_site + relative_link + "?token=" + str(token)
-        absurl = "http://127.0.0.1/verify/" + str(token)
+        absurl = "https://getfittoday.xyz/verify/" + str(token)
         # absurl = "http://127.0.0.1:3000/verify/" + str(token)
         
         email_body = (
