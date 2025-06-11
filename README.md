@@ -13,7 +13,7 @@ Built with the tools and technologies:
 ## 📚 Table of Contents
 
 - [Overview](#overview)
-- [Why GetFitBackendDeployment?](#why-getfitbackenddeployment)
+- [What is GetFitBackendDeployment?](#why-getfitbackenddeployment)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -29,9 +29,9 @@ It is structured for scalability, modularity, and ease of use — making backend
 
 ---
 
-## 🚀 Why GetFitBackendDeployment?
+## 🚀 What is GetFitBackendDeployment?
 
-This project simplifies the deployment process while ensuring scalability and efficiency. Core features include:
+This is the backend API for the website GetFitToday.xyz. This project simplifies the deployment process while ensuring scalability and efficiency. Core features include:
 
 - 🚢 **Containerized Deployment**: Easily launch Django with Nginx using Docker.
 - 🔄 **Multi-Service Architecture**: Integrated support for PostgreSQL, Redis, and Gunicorn via Docker Compose.
@@ -124,8 +124,12 @@ docker-compose exec web python manage.py collectstatic --noinput
 
 After setup, access the services at:
 
-- 🧠 **API Root**: [http://localhost/api/](http://localhost/api/)
-- 🔐 **Admin Panel**: [http://localhost/admin/](http://localhost/admin/)
+- 🧠 **API Root**: [
+https://www.server.getfittoday.xyz/api/](
+https://www.server.getfittoday.xyz/api/)
+- 🔐 **Admin Panel**: [
+https://www.server.getfittoday.xyz/admin](
+https://www.server.getfittoday.xyz/admin/)
 
 > 🛠️ In production, replace `localhost` with your domain or public IP (e.g., EC2 IP).
 
