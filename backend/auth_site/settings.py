@@ -201,3 +201,9 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 # for debugging
 # print(os.environ.get('EMAIL_HOST_USER'))
 # print(os.environ.get('EMAIL_HOST_PASSWORD'))
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.server.getfittoday.xyz',
+    'https://getfittoday.xyz',
+]
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
